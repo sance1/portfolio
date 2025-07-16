@@ -36,3 +36,28 @@ const headerLogoConatiner = document.querySelector('.header__logo-container')
 headerLogoConatiner.addEventListener('click', () => {
   location.href = 'index.html'
 })
+
+// for modal
+const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".img-modal-close");
+
+  // Apply click to all certificate images
+  document.querySelectorAll(".certificate-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "block";
+      modalImg.src = img.src;
+    });
+  });
+
+  // Close on click close button
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  // Close on outside click
+  window.addEventListener("click", e => {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  });
